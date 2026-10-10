@@ -19,6 +19,7 @@ jobs:
       - run: python scripts/refresh_scores.py --output-dir output
       - run: python scripts/audit_scores.py --input output/completed_2026_scores.csv --output output/audit.json
       - run: python scripts/collect_drives.py --scores output/completed_2026_scores.csv --output-dir output
+      - run: python scripts/classify_drives.py --raw output/raw_2026_drives.csv --scores output/completed_2026_scores.csv --output output/verified_2026_drives.csv --report output/scoring_report.json
       - uses: actions/upload-artifact@v4
         with:
           name: cfb-2026-scores
